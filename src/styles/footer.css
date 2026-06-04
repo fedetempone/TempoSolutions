@@ -1,0 +1,171 @@
+/* ==========================================================================
+   MOBILE BASE (Estilos por defecto para celulares)
+   ========================================================================== */
+
+.footer {
+  background: var(--background);
+  border-top: 1px solid var(--border);
+  padding: 60px 20px 20px 20px;
+}
+
+.footer-container {
+  max-width: var(--containerWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Separación de bloques en vertical para celus */
+}
+
+/* Columna de Branding */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-brand-title {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand-title span {
+  color: var(--primary); /* El azul de tu paleta */
+}
+
+.footer-brand-text {
+  color: var(--textSecondary);
+  font-size: var(--smallTextSize);
+  line-height: 1.5;
+  max-width: 280px;
+  text-align: center;
+}
+
+/* Redes Sociales */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.footer-socials a {
+  color: var(--textSecondary);
+  transition: var(--transitionFast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-socials a:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Estilos comunes para las columnas de enlaces */
+.footer-links-col h3 {
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+
+.footer-links-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-col ul li a {
+  color: var(--textSecondary);
+  font-size: var(--smallTextSize);
+  text-decoration: none;
+  transition: var(--transitionFast);
+}
+
+.footer-links-col ul li a:hover {
+  color: var(--white);
+  padding-left: 4px; /* Efecto sutil al pasar el mouse */
+}
+
+/* Info específica de contacto con íconos */
+.footer-contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--textSecondary);
+  font-size: var(--smallTextSize);
+}
+
+.footer-contact-info li svg {
+  color: var(--primary); /* Íconos en azul */
+  flex-shrink: 0;
+}
+
+/* Barra inferior de Copyright */
+.footer-bottom {
+  max-width: var(--containerWidth);
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE QUERIES
+   ========================================================================== */
+
+/* Tablets */
+@media (min-width: 768px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Desktop (Se alinea exacto con tu captura) */
+@media (min-width: 1100px) {
+  .footer {
+    padding: 80px 20px 30px 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.2fr repeat(4, 1fr); /* Distribución simétrica en 5 bloques */
+    gap: 30px;
+  }
+
+  .footer-links-col ul li a:hover {
+    padding-left: 0; /* Sacamos el padding en desktop si preferís que mantenga la grilla limpia */
+    color: var(--white);
+  }
+
+  .footer-bottom {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+}

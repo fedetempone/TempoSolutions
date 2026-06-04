@@ -1,0 +1,239 @@
+.heroSection {
+    background:
+        radial-gradient(circle at top left,
+            rgba(45, 124, 255, 0.15),
+            transparent 40%),
+        var(--background);
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.heroContainer {
+    width: 100%;
+    max-width: var(--containerWidth);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.heroContent {
+    flex: 1;
+    max-width: 650px;
+    z-index: 2;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.badgeDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.heroBadge p {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.heroTitle {
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+}
+
+.heroTitle span {
+    color: var(--primary);
+}
+
+.heroDescription {
+    max-width: 580px;
+    color: var(--textSecondary);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.primaryButton {
+    height: 60px;
+    padding: 0 2rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.secondaryButton {
+    height: 60px;
+    padding: 0 2rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.heroFeatures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.featureItem {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.featureItem svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.featureItem h5 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.featureItem p {
+    font-size: 0.85rem;
+    color: var(--textSecondary);
+}
+
+.heroImageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.glowEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle,
+            rgba(0, 102, 255, 0.35) 0%,
+            rgba(0, 40, 120, 0.15) 50%,
+            transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -2;
+}
+
+.tech-lines-svg {
+    position: absolute;
+    top: -15%;
+    right: -15%;
+    width: 130%;
+    height: auto;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(0.3px);
+    mask-image: radial-gradient(circle at 80% 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: radial-gradient(circle at 80% 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 95%);
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 800px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 35px rgba(0, 110, 255, 0.45)) drop-shadow(0 0 70px rgba(0, 70, 200, 0.2));
+}
+
+@keyframes floatAmbient {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 999px) {
+    .heroContainer {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 1.5rem;
+    }
+
+    .heroContent {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .heroButtons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .heroFeatures {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .featureItem {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .glowEffect {
+        transform: translate(-50%, -50%);
+        width: 60%;
+        height: 60%;
+    }
+
+    .tech-lines-svg {
+        width: 110%;
+        top: -5%;
+        right: -5%;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 500px) {
+    .heroTitle {
+        font-size: 2.6rem;
+    }
+
+    .heroFeatures {
+        grid-template-columns: 1fr;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 200px) {
+    .heroTitle {
+        font-size: 2rem;
+    }
+}

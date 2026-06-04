@@ -1,0 +1,83 @@
+:root {
+  /* =========================
+     COLORS
+  ========================= */
+
+  --primary: #2D7CFF;
+  --primaryLight: #4D92FF;
+  --cyan: #00D4FF;
+
+  --background: #050816;
+  --backgroundSecondary: #0B1120;
+  --backgroundCard: #111827;
+
+  --white: #FFFFFF;
+
+  --text: #FFFFFF;
+  --textSecondary: #A9B3C9;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --shadowBlue: rgba(45, 124, 255, 0.25);
+
+  /* =========================
+     TYPOGRAPHY
+  ========================= */
+
+  --fontTitle: "Urbanist", sans-serif;
+  --fontText: "Montserrat", sans-serif;
+
+  /* Desktop */
+  --h1Size: 3.2rem;   /* 51px */
+  --h2Size: 2.4rem;   /* 38px */
+  --h3Size: 1.5rem;   /* 24px */
+  --h4Size: 1.25rem;  /* 20px */
+  --h5Size: 1.1rem;   /* 18px */
+
+  --textSize: 1rem;   /* 16px */
+  --smallTextSize: 0.9rem; /* 14px */
+
+  --h1Weight: 800;
+  --h2Weight: 800;
+  --h3Weight: 700;
+  --h4Weight: 700;
+  --h5Weight: 600;
+
+  --textWeight: 400;
+
+  --lineHeight: 1.6;
+
+  /* =========================
+     LAYOUT
+  ========================= */
+
+  --containerWidth: 1400px;
+
+  --sectionPadding: 30px;
+  --sectionPaddingMobile: 20px;
+
+  /* =========================
+     BORDER RADIUS
+  ========================= */
+
+  --radiusSm: 8px;
+  --radiusMd: 12px;
+  --radiusLg: 20px;
+  --radiusXl: 30px;
+
+  /* =========================
+     TRANSITIONS
+  ========================= */
+
+  --transitionFast: 0.2s ease;
+  --transitionNormal: 0.3s ease;
+  --transitionSlow: 0.5s ease;
+
+  /* =========================
+     Z-INDEX
+  ========================= */
+
+  --zNavbar: 1000;
+  --zMenu: 1500;
+  --zModal: 2000;
+}
