@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import "../styles/technicalWorks.css";
 import { CaretLeft, CaretRight, Lightning, Smiley, Clock, ShieldCheck } from "@phosphor-icons/react";
 import { technicalWorksData, statsData } from "../data/technicalWorks";
