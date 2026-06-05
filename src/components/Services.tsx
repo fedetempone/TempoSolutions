@@ -1,10 +1,22 @@
-import { ArrowRight } from "@phosphor-icons/react";
+import { useState } from "react";
+
+import {
+  ArrowRight,
+} from "@phosphor-icons/react";
 
 import { services } from "../data/services";
+import type { Service } from "../data/services";
+
+import ServiceModal from "./ServiceModal";
 
 import "../styles/services.css";
 
 const Services = () => {
+  const [
+    selectedService,
+    setSelectedService,
+  ] = useState<Service | null>(null);
+
   return (
     <section
       id="services"
@@ -20,9 +32,9 @@ const Services = () => {
         </h2>
 
         <p className="sectionDescription">
-          Ofrezco soluciones integrales en tecnología
-          para potenciar tu negocio y resolver
-          problemas del día a día.
+          Ofrezco soluciones integrales en
+          tecnología para potenciar tu negocio
+          y resolver problemas del día a día.
         </p>
 
         <div className="servicesGrid">
@@ -41,7 +53,9 @@ const Services = () => {
 
                 <h3>{service.title}</h3>
 
-                <p>{service.description}</p>
+                <p>
+                  {service.description}
+                </p>
 
                 <ul>
                   {service.items.map((item) => (
@@ -51,8 +65,14 @@ const Services = () => {
                   ))}
                 </ul>
 
-                <button className="serviceButton">
+                <button
+                  className="serviceButton"
+                  onClick={() =>
+                    setSelectedService(service)
+                  }
+                >
                   Más información
+
                   <ArrowRight size={16} />
                 </button>
               </article>
@@ -60,6 +80,13 @@ const Services = () => {
           })}
         </div>
       </div>
+
+      <ServiceModal
+        service={selectedService}
+        onClose={() =>
+          setSelectedService(null)
+        }
+      />
     </section>
   );
 };

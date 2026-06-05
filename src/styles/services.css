@@ -86,7 +86,6 @@
 
 .serviceCard svg {
   color: var(--primary);
-  margin-bottom: 10px;
 }
 
 .serviceCard h3 {
@@ -135,7 +134,7 @@
 }
 
 .serviceButton:hover {
-  color: var(--primaryLight);
+  color: #fff;
 
   transform: translateX(4px);
 }

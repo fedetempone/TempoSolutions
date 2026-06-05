@@ -50,10 +50,9 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="navbar">
+    <nav id="navbarSectionId" className="navbar">
       <div className="navbarContainer">
         {/* Logo */}
-
         <div
           className="logoContainer"
           onClick={() => {
@@ -79,7 +78,6 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-
         <div className="desktopNavigation">
           <button
             className="navLink"
@@ -104,7 +102,7 @@ const Navbar = () => {
 
           <button
             className="navLink"
-            onClick={() => scrollToSection("technicalWorks")}
+            onClick={() => scrollToSection("technical")}
           >
             Trabajos Técnicos
           </button>
@@ -116,21 +114,37 @@ const Navbar = () => {
             Sobre Mí
           </button>
 
+          {/* Agregado: Botón de Contacto exclusivo para la versión de Escritorio */}
           <button
             className="navLink"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => {
+              window.open(
+                "https://wa.me/5491130607355?text=Hola%20Fede!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20TempoSolutions%20y%20pedirte%20un%20presupuesto.",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
           >
             Contacto
           </button>
 
-          <button className="quoteButton">
+          {/* Botón principal destacado */}
+          <button 
+            className="quoteButton"
+            onClick={() => {
+              window.open(
+                "https://wa.me/5491130607355?text=Hola%20Fede!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20TempoSolutions%20y%20pedirte%20un%20presupuesto.",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
+          >
             <PaperPlaneTilt size={18} weight="fill" />
             Solicitar Presupuesto
           </button>
         </div>
 
         {/* Hamburger */}
-
         <div
           className={`hamburger ${isMenuOpen ? "active" : ""}`}
           onClick={handleMenuToggle}
@@ -143,7 +157,6 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-
       <div className={`mobileMenu ${isMenuOpen ? "open" : ""}`}>
         <button
           className="mobileNavLink"
@@ -178,7 +191,7 @@ const Navbar = () => {
         <button
           className="mobileNavLink"
           onClick={() => {
-            scrollToSection("technicalWorks");
+            scrollToSection("technical");
             handleLinkClick();
           }}
         >
@@ -195,10 +208,15 @@ const Navbar = () => {
           Sobre Mí
         </button>
 
+        {/* Botón de Contacto exclusivo para la versión Mobile */}
         <button
           className="mobileNavLink"
           onClick={() => {
-            scrollToSection("contact");
+            window.open(
+              "https://wa.me/5491130607355?text=Hola%20Fede!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20TempoSolutions%20y%20pedirte%20un%20presupuesto.",
+              "_blank",
+              "noopener,noreferrer"
+            );
             handleLinkClick();
           }}
         >

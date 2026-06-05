@@ -8,6 +8,22 @@ html {
   scroll-behavior: smooth;
 }
 
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow-y: auto;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--text);

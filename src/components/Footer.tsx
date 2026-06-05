@@ -44,12 +44,11 @@ const Footer: React.FC = () => {
         <div className="footer-links-col">
           <h3>NAVEGACIÓN</h3>
           <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#navbarSectionId">Inicio</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#projects">Proyectos</a></li>
             <li><a href="#technical">Trabajos Técnicos</a></li>
             <li><a href="#about">Sobre Mí</a></li>
-            <li><a href="#contacto">Contacto</a></li>
           </ul>
         </div>
 
@@ -85,10 +84,10 @@ const Footer: React.FC = () => {
 
         {/* Columna 5: Legal */}
         <div className="footer-links-col">
-          <h3>LEGAL</h3>
+          <h3>LEGAL & INFO</h3>
           <ul>
-            <li><a href="#privacidad">Política de Privacidad</a></li>
-            <li><a href="#terminos">Términos y Condiciones</a></li>
+            <li><a href="https://www.termsfeed.com/live/931d0bc8-984c-44c4-a2c0-f2cdcf7924cd">Política de Privacidad</a></li>
+            <li><a href="https://github.com/fedetempone/TempoSolutions">Open Source</a></li>
           </ul>
         </div>
 
