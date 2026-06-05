@@ -10,11 +10,11 @@ import Footer from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop"; // Importamos el botón
 
 function App() {
-  // Usamos un ref para poder acceder a la instancia de lenis fuera del useEffect
+  // ref para acceder a la instancia del lenis
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Inicializamos el scroll suave con los ajustes de FPS que tuneamos
+    // inicializacion de scroll
     const lenis = new Lenis({
       duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -25,7 +25,7 @@ function App() {
       lerp: 0.08,
     });
 
-    lenisRef.current = lenis; // Guardamos la instancia
+    lenisRef.current = lenis; // guardado de instancia
 
     function raf(time: number) {
       lenis.raf(time);
@@ -34,7 +34,7 @@ function App() {
 
     requestAnimationFrame(raf);
 
-    // CONTROL DEL SCROLL SUAVE PARA LINKS INTERNOS (#)
+    // CONTROL DEL SCROLL 
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
@@ -62,11 +62,11 @@ function App() {
     };
   }, []);
 
-  // Función para manejar la subida usando la fluidez de Lenis
+  // funcoin para manejar la subida usando la fluidez de Lenis
   const handleScrollToTop = () => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, {
-        duration: 1.8, // Un viaje al tope bastante suave pero no tan lento como las secciones
+        duration: 1.8,
         immediate: false
       });
     }
@@ -82,7 +82,7 @@ function App() {
       <About />
       <Footer />
       
-      {/* Botón siempre visible e integrado al scroll de Lenis */}
+      {/* bton siempre visible e integrado al scroll de Lenis */}
       <ScrollToTop onClick={handleScrollToTop} />
     </>
   );

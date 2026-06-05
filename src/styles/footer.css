@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MOBILE BASE (Estilos por defecto para celulares)
+   MOBILE BASE 
    ========================================================================== */
 
 .footer {
@@ -13,10 +13,10 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Separación de bloques en vertical para celus */
+  gap: 40px; 
 }
 
-/* Columna de Branding */
+/* columna de branding */
 .footer-brand-col {
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
 }
 
 .footer-brand-title span {
-  color: var(--primary); /* El azul de tu paleta */
+  color: var(--primary); 
 }
 
 .footer-brand-text {
@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-/* Redes Sociales */
+/* redes sociales */
 .footer-socials {
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@
   transform: translateY(-2px);
 }
 
-/* Estilos comunes para las columnas de enlaces */
+/* estilos comunos para enlaces */
 .footer-links-col h3 {
   color: var(--white);
   font-size: 0.85rem;
@@ -103,10 +103,10 @@
 
 .footer-links-col ul li a:hover {
   color: var(--white);
-  padding-left: 4px; /* Efecto sutil al pasar el mouse */
+  padding-left: 4px; 
 }
 
-/* Info específica de contacto con íconos */
+/* info de contacto e iconos */
 .footer-contact-info li {
   display: flex;
   align-items: center;
@@ -116,11 +116,11 @@
 }
 
 .footer-contact-info li svg {
-  color: var(--primary); /* Íconos en azul */
+  color: var(--primary); 
   flex-shrink: 0;
 }
 
-/* Barra inferior de Copyright */
+/* barra inferior de copyright */
 .footer-bottom {
   max-width: var(--containerWidth);
   margin: 40px auto 0 auto;
@@ -138,7 +138,7 @@
    RESPONSIVE QUERIES
    ========================================================================== */
 
-/* Tablets */
+/* tablet */
 @media (min-width: 768px) {
   .footer-container {
     display: grid;
@@ -147,19 +147,19 @@
   }
 }
 
-/* Desktop (Se alinea exacto con tu captura) */
+/* DESTKOP */
 @media (min-width: 1100px) {
   .footer {
     padding: 80px 20px 30px 20px;
   }
 
   .footer-container {
-    grid-template-columns: 1.2fr repeat(4, 1fr); /* Distribución simétrica en 5 bloques */
+    grid-template-columns: 1.2fr repeat(4, 1fr); 
     gap: 30px;
   }
 
   .footer-links-col ul li a:hover {
-    padding-left: 0; /* Sacamos el padding en desktop si preferís que mantenga la grilla limpia */
+    padding-left: 0; 
     color: var(--white);
   }
 

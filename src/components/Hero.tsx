@@ -1,11 +1,12 @@
 import {
-  WhatsappLogo,
   Clock,
   Gear,
   ShieldCheck,
   Lifebuoy,
-  Monitor,
 } from "@phosphor-icons/react";
+
+// 1. Importamos tu nuevo botón animado
+import MorphButton from "./MorphButton"; 
 
 import "../styles/hero.css";
 
@@ -35,17 +36,9 @@ const Hero = () => {
           </p>
 
           <div className="heroButtons">
-            <a
-              href="https://wa.me/5491130607355?text=Hola%20Fede!%20Estuve%20viendo%20tu%20portfolio%20de%20TempoSolutions%20y%20me%20gustaría%20que%20charlemos%20sobre%20un%20proyecto."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: 'none', display: 'inline-block' }}
-            >
-              <button className="primaryButton">
-                <WhatsappLogo size={24} weight="fill" />
-                Escribime por WhatsApp
-              </button>
-            </a>
+            {/* 2. Reemplazamos el viejo bloque de WhatsApp por tu componente pro */}
+            <MorphButton />
+
             <a href="#projects" style={{ textDecoration: 'none', display: 'inline-block' }}>
               <button className="secondaryButton">
                 Ver Proyectos

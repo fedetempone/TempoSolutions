@@ -1,4 +1,4 @@
-// Tipado de las estructuras
+// tipado de estructuras
 export interface TechnicalWork {
   title: string;
   description: string;
@@ -12,7 +12,7 @@ export interface StatItem {
   value: string;
 }
 
-// Datos para el carrusel de hardware y soporte
+// datos para carrusel hardarware y soporte
 export const technicalWorksData: TechnicalWork[] = [
   {
     title: "Armado de Equipos",
@@ -46,7 +46,7 @@ export const technicalWorksData: TechnicalWork[] = [
   }
 ];
 
-// Estadísticas modificadas sin el +20 ni +15
+// estadisticas 
 export const statsData: StatItem[] = [
   {
     id: "projects",

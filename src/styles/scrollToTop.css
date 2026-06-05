@@ -4,7 +4,7 @@
   right: 2rem;
   width: 48px;
   height: 48px;
-  background-color: #0070f3; /* Tu acento azul de TempoSolutions */
+  background-color: #0070f3; 
   color: #ffffff;
   border: none;
   border-radius: 50%;
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3); /* Sombra con el mismo tono azul */
+  box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3); 
   opacity: 0;
   visibility: hidden;
   transform: scale(0.8);
@@ -20,22 +20,22 @@
   z-index: 99;
 }
 
-/* Cuando se activa con el estado de React */
+/* cuando se activa con el estado */
 .scroll-btn.show {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-/* Hover effect */
+/* hover effect */
 @media (hover: hover) {
   .scroll-btn:hover {
-    background-color: #0051b3; /* Un azul un toque más oscuro */
+    background-color: #0051b3;
     transform: translateY(-4px) scale(1.05);
   }
 }
 
-/* Enfoque mobile-first: Ajuste para pantallas chicas */
+/* pantallas chicas */
 @media (max-width: 768px) {
   .scroll-btn {
     bottom: 1.5rem;

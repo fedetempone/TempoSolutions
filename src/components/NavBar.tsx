@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav id="navbarSectionId" className="navbar">
       <div className="navbarContainer">
-        {/* Logo */}
+        {/* logo */}
         <div
           className="logoContainer"
           onClick={() => {
@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* desktop */}
         <div className="desktopNavigation">
           <button
             className="navLink"
@@ -114,7 +114,7 @@ const Navbar = () => {
             Sobre Mí
           </button>
 
-          {/* Agregado: Botón de Contacto exclusivo para la versión de Escritorio */}
+          {/* boton de contacto version escritorio */}
           <button
             className="navLink"
             onClick={() => {
@@ -208,7 +208,7 @@ const Navbar = () => {
           Sobre Mí
         </button>
 
-        {/* Botón de Contacto exclusivo para la versión Mobile */}
+        {/* boton de contacto version mobile */}
         <button
           className="mobileNavLink"
           onClick={() => {

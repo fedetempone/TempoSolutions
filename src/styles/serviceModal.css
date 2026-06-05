@@ -1,247 +1,147 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 24px;
-
   background: rgba(0, 0, 0, 0.8);
-
   backdrop-filter: blur(12px);
-
   z-index: 9999;
-
   animation: fadeIn 0.25s ease;
 }
-
 .modalContent {
   position: relative;
-
   width: 100%;
   max-width: 720px;
-
   background: rgba(11, 17, 32, 0.98);
-
   border: 1px solid rgba(45, 124, 255, 0.15);
-
   border-radius: 24px;
-
   padding: 40px;
-
   overflow: hidden;
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(45, 124, 255, 0.12);
-
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(45, 124, 255, 0.12);
   animation: modalShow 0.3s ease;
 }
-
 .modalContent::before {
   content: "";
-
   position: absolute;
-
   top: -150px;
   right: -150px;
-
   width: 300px;
   height: 300px;
-
   border-radius: 50%;
-
   background: rgba(0, 212, 255, 0.08);
-
   filter: blur(80px);
-
   pointer-events: none;
 }
-
 .closeButton {
   position: absolute;
-
   top: 20px;
   right: 20px;
-
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: none;
   border-radius: 50%;
-
   cursor: pointer;
-
   color: var(--textPrimary);
-
   background: rgba(255, 255, 255, 0.05);
-
   transition: all 0.3s ease;
 }
-
 .closeButton:hover {
   background: rgba(45, 124, 255, 0.2);
-
   transform: rotate(90deg);
 }
-
 .modalBadge {
   display: inline-flex;
-
   align-items: center;
-
   padding: 8px 18px;
-
   border-radius: 999px;
-
   margin-bottom: 24px;
-
   background: rgba(45, 124, 255, 0.12);
-
   border: 1px solid rgba(45, 124, 255, 0.25);
-
   color: var(--primaryLight);
-
   font-size: 0.85rem;
   font-weight: 600;
 }
-
 .modalContent h2 {
   margin-bottom: 1rem;
-
   color: var(--textPrimary);
-
   font-size: clamp(2rem, 4vw, 2.6rem);
-
   line-height: 1.1;
 }
-
 .modalDescription {
   color: var(--textSecondary);
-
   line-height: 1.8;
-
   margin-bottom: 2rem;
 }
-
 .modalFeatures {
   display: grid;
-
   gap: 12px;
-
   margin-bottom: 2rem;
 }
-
 .modalFeatures div {
   display: flex;
   align-items: center;
-
   padding: 14px 18px;
-
   border-radius: 14px;
-
   background: rgba(255, 255, 255, 0.03);
-
   border: 1px solid rgba(255, 255, 255, 0.05);
-
   color: var(--textSecondary);
-
   transition: all 0.3s ease;
 }
-
 .modalFeatures div:hover {
   border-color: rgba(45, 124, 255, 0.25);
-
   transform: translateX(4px);
 }
-
 .modalWhatsapp {
   height: 58px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   text-decoration: none;
-
   border-radius: 14px;
-
   font-weight: 700;
-
   color: white;
-
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--accent)
-  );
-
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   transition: all 0.3s ease;
 }
-
 .modalWhatsapp:hover {
   transform: translateY(-3px);
-
-  box-shadow:
-    0 12px 30px rgba(45, 124, 255, 0.25);
+  box-shadow: 0 12px 30px rgba(45, 124, 255, 0.25);
 }
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes modalShow {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
-
 /* ========================= */
 /* MOBILE */
 /* ========================= */
-
 @media (max-width: 768px) {
   .modalContent {
     padding: 28px;
   }
-
   .modalContent h2 {
     font-size: 1.8rem;
   }
-
   .modalWhatsapp {
     width: 100%;
   }
 }
-
 @media (max-width: 500px) {
   .modalOverlay {
     padding: 16px;
   }
-
   .modalContent {
     padding: 24px;
   }
-
   .modalFeatures div {
     font-size: 0.95rem;
   }

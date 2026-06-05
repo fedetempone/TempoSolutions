@@ -72,19 +72,6 @@
     margin-bottom: 3rem;
 }
 
-.primaryButton {
-    height: 60px;
-    padding: 0 2rem;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--primary), var(--primaryLight));
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-}
-
 .secondaryButton {
     height: 60px;
     padding: 0 2rem;
@@ -93,6 +80,15 @@
     border-radius: 12px;
     color: white;
     cursor: pointer;
+    transition: transform var(--transitionNormal), background var(--transitionNormal), border-color var(--transitionNormal), box-shadow var(--transitionNormal);
+}
+
+/* hover para boton ver proyectos  */
+.secondaryButton:hover {
+    transform: translateY(-3px);
+    border-color: var(--primaryLight);
+    background: rgba(45, 124, 255, 0.08);
+    box-shadow: 0 10px 25px rgba(45, 124, 255, 0.15);
 }
 
 .heroFeatures {

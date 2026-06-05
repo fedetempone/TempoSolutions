@@ -1,7 +1,8 @@
 .navbar {
   width: 100%;
   min-height: 95px;
-  background: radial-gradient(circle at top left, rgba(45, 124, 255, 0.15), transparent 40%), var(--background);;
+  background: radial-gradient(circle at top left, rgba(45, 124, 255, 0.15), transparent 40%), var(--background);
+  ;
   position: relative;
   z-index: 1000;
   display: flex;
@@ -194,50 +195,115 @@
   }
 
   .quoteButton {
-    height: 52px;
-    padding: 0 24px;
-    border: none;
-    border-radius: 12px;
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
+    width: fit-content;
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 14px 30px;
+    border-radius: var(--radiusMd);
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    color: var(--white);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: var(--transitionNormal);
     cursor: pointer;
-    transition: all 0.3s ease;
+  }
+
+  .quoteButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: conic-gradient(transparent, var(--cyan), var(--primaryLight), transparent 60%);
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity var(--transitionNormal);
+  }
+
+  .quoteButton::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    border-radius: calc(var(--radiusMd) - 2px);
+    z-index: -1;
+    transition: var(--transitionNormal);
   }
 
   .quoteButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(45, 124, 255, 0.35);
-  }
-}
-
-/* <= 500 */
-
-@media (max-width: 500px) {
-  .logoSubtitle {
-    display: none;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px var(--shadowBlue), 0 0 25px rgba(0, 212, 255, 0.2);
   }
 
-  .logoImage {
-    width: 54px;
+  .quoteButton:hover::before {
+    opacity: 1;
+    animation: rotateGlow 2s linear infinite;
   }
 
-  .logoTitle {
-    font-size: 1rem;
-  }
-}
-
-/* <= 200 */
-
-@media (max-width: 200px) {
-  .logoTitle {
-    font-size: 0.75rem;
+  .quoteButton:hover::after {
+    background: var(--backgroundSecondary);
   }
 
-  .mobileNavLink {
-    font-size: 0.8rem;
+  @keyframes planeShake {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+      transform: translate(2px, -2px) rotate(5deg);
+    }
+
+    50% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    75% {
+      transform: translate(-2px, 2px) rotate(-5deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+
+  .quoteButton:hover svg {
+    animation: planeShake 0.6s ease-in-out;
+  }
+
+  /* <= 500 */
+
+  @media (max-width: 500px) {
+    .logoSubtitle {
+      display: none;
+    }
+
+    .logoImage {
+      width: 54px;
+    }
+
+    .logoTitle {
+      font-size: 1rem;
+    }
+  }
+
+  /* <= 200 */
+
+  @media (max-width: 200px) {
+    .logoTitle {
+      font-size: 0.75rem;
+    }
+
+    .mobileNavLink {
+      font-size: 0.8rem;
+    }
   }
 }

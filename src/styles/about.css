@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MOBILE BASE (Estilos por defecto para celulares)
+   MOBILE BASE 
    ========================================================================== */
 
 .about-contact {
@@ -15,7 +15,7 @@
   gap: 24px;
 }
 
-/* Tarjeta Sobre Mí */
+/* sobre mi card */
 .about-card {
   background: rgba(11, 17, 32, 0.4);
   border: 1px solid var(--border);
@@ -79,12 +79,13 @@
 }
 
 .about-btn-more:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  box-shadow: 0 0 12px rgba(45, 124, 255, 0.2);
+  transform: translateY(-3px);
+  border-color: var(--primaryLight);
+  background: rgba(45, 124, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(45, 124, 255, 0.15);
 }
 
-/* Tarjeta CTA Proyecto / WhatsApp */
+/* tarjeta cta  */
 .cta-card {
   background: rgba(11, 17, 32, 0.4);
   border: 1px solid var(--border);
@@ -116,30 +117,62 @@
 }
 
 .cta-btn-whatsapp {
-  display: inline-flex;
+  width: fit-content;
+  display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  background: #2563eb; 
-  color: var(--white);
-  padding: 12px 24px;
-  border-radius: var(--radiusSm);
-  font-weight: 600;
-  font-size: 0.95rem;
+  padding: 14px 30px;
+  border-radius: var(--radiusMd);
   text-decoration: none;
-  width: 100%; 
-  transition: var(--transitionFast);
-  border: none;
-  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  color: var(--white);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: var(--transitionNormal);
+}
+
+.cta-btn-whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(transparent, var(--cyan), var(--primaryLight), transparent 60%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -2;
+  opacity: 0;
+  transition: opacity var(--transitionNormal);
+}
+.cta-btn-whatsapp::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  border-radius: calc(var(--radiusMd) - 2px);
+  z-index: -1;
+  transition: var(--transitionNormal);
 }
 
 .cta-btn-whatsapp:hover {
-  background: #1d4ed8;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
-  transform: translateY(-1px);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px var(--shadowBlue), 0 0 25px rgba(0, 212, 255, 0.2);
 }
 
-/* En mobile mostramos la laptop abajo de todo bien centrada */
+.cta-btn-whatsapp:hover::before {
+  opacity: 1;
+  animation: rotateGlow 2s linear infinite;
+}
+.cta-btn-whatsapp:hover::after {
+  background: var(--backgroundSecondary);
+}
+
+/* en mobile muestro la laptop abajo de todo bien centrada */
 .cta-image-wrapper {
   display: flex;
   justify-content: center;
@@ -167,11 +200,11 @@
 
   .about-contact-container {
     display: grid;
-    grid-template-columns: 1.1fr 1.4fr; 
+    grid-template-columns: 1.1fr 1.4fr;
     gap: 24px;
   }
 
-  /* Alineación horizontal Sobre Mí */
+  /* sobre mi alineado */
   .about-card {
     flex-direction: row;
     text-align: left;
@@ -188,7 +221,7 @@
     margin-bottom: 20px;
   }
 
-  /* Ajustes para el CTA y la laptop incrustada a la derecha */
+  /* cta y laptop */
   .cta-card {
     flex-direction: row;
     align-items: center;
@@ -196,10 +229,9 @@
   }
 
   .cta-btn-whatsapp {
-    width: auto; 
+    width: fit-content;
   }
 
-  /* Recorte y posicionamiento exacto estilo maqueta */
   .cta-image-wrapper {
     position: absolute;
     right: 0;
@@ -217,7 +249,7 @@
     border-left: 1px solid var(--border);
     opacity: 0.8;
     /* Efecto de degradado sutil para fundir la imagen con el fondo oscuro a la izquierda */
-    mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
   }
 }
