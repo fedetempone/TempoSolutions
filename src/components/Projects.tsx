@@ -5,6 +5,7 @@ const projects = [
     {
         title: "GenHR",
         image: "/img/genhr.png",
+        link: "https://www.genhr.com.ar/",
         description:
             "Plataforma corporativa desarrollada para una consultora de Recursos Humanos, enfocada en experiencia premium, animaciones avanzadas y optimización de rendimiento.",
         technologies: [
@@ -18,6 +19,7 @@ const projects = [
     {
         title: "Tuky Garage",
         image: "/img/tukygarage.png",
+        link: "https://tukygarage.netlify.app/",
         description:
             "Sitio web profesional para taller mecánico, diseñado para fortalecer la presencia digital del negocio y facilitar el contacto con potenciales clientes.",
         technologies: [
@@ -31,6 +33,7 @@ const projects = [
     {
         title: "Lego Ecommerce",
         image: "/img/legoecommerce.png",
+        link: "https://ecommerce-legotempone.onrender.com/",
         description:
             "E-commerce Full Stack con catálogo dinámico, carrito de compras, gestión de productos y conexión con base de datos.",
         technologies: [
@@ -64,7 +67,10 @@ const Projects = () => {
 
                 <div className="projectsGrid">
                     {projects.map((project) => (
-                        <article
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="projectCard"
                             key={project.title}
                         >
@@ -92,7 +98,7 @@ const Projects = () => {
                                     ))}
                                 </div>
                             </div>
-                        </article>
+                        </a>
                     ))}
                 </div>
 

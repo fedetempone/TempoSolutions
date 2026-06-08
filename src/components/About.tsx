@@ -4,7 +4,7 @@ import { WhatsappLogo } from "@phosphor-icons/react";
 
 const AboutContact: React.FC = () => {
   const avatarUrl = "./img/about.jpeg";
-  const laptopUrl = "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=500&q=80";
+  const laptopUrl = "./img/projectinmind.avif";
 
   return (
     <section className="about-contact" id="about">

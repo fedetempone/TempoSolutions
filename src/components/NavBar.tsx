@@ -222,17 +222,19 @@ const Navbar = () => {
         >
           Contacto
         </button>
-
-        <button
-          className="mobileQuoteButton"
-          onClick={() => {
-            scrollToSection("contact");
-            handleLinkClick();
-          }}
-        >
-          <PaperPlaneTilt size={18} weight="fill" />
-          Solicitar Presupuesto
-        </button>
+        <button 
+            className="mobileQuoteButton"
+            onClick={() => {
+              window.open(
+                "https://wa.me/5491130607355?text=Hola%20Fede!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20TempoSolutions%20y%20pedirte%20un%20presupuesto.",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
+          >
+            <PaperPlaneTilt size={18} weight="fill" />
+            Solicitar Presupuesto
+          </button>
       </div>
     </nav>
   );

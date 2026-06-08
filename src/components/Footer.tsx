@@ -1,20 +1,128 @@
+// import React from "react";
+// import "../styles/footer.css";
+// import { 
+//   InstagramLogo, 
+//   LinkedinLogo, 
+//   GithubLogo, 
+//   WhatsappLogo, 
+//   Phone, 
+//   EnvelopeSimple, 
+//   MapPin 
+// } from "@phosphor-icons/react";
+
+// const Footer: React.FC = () => {
+//   return (
+//     <footer className="footer">
+//       <div className="footer-container">
+
+//         {/* Columna 1: Branding y Redes */}
+//         <div className="footer-brand-col">
+//           <div className="footer-logo-box">
+//             <img src="/img/logobackgroundremoveshort.png" alt="Tempo Solutions Logo" className="footer-logo" />
+//             <h2 className="footer-brand-title">TEMPO<span>SOLUTIONS</span></h2>
+//           </div>
+//           <p className="footer-brand-text">
+//             Soluciones tecnológicas para personas y empresas.
+//           </p>
+//           <div className="footer-socials">
+//             <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+//               <WhatsappLogo size={22} weight="light" />
+//             </a>
+//             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+//               <InstagramLogo size={22} weight="light" />
+//             </a>
+//             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+//               <LinkedinLogo size={22} weight="light" />
+//             </a>
+//             <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+//               <GithubLogo size={22} weight="light" />
+//             </a>
+//           </div>
+//         </div>
+
+//         {/* Columna 2: Navegación */}
+//         <div className="footer-links-col">
+//           <h3>NAVEGACIÓN</h3>
+//           <ul>
+//             <li><a href="#navbarSectionId">Inicio</a></li>
+//             <li><a href="#services">Servicios</a></li>
+//             <li><a href="#projects">Proyectos</a></li>
+//             <li><a href="#technical">Trabajos Técnicos</a></li>
+//             <li><a href="#about">Sobre Mí</a></li>
+//           </ul>
+//         </div>
+
+//         {/* Columna 3: Servicios */}
+//         <div className="footer-links-col">
+//           <h3>SERVICIOS</h3>
+//           <ul>
+//             <li><a href="#web">Desarrollo Web</a></li>
+//             <li><a href="#soporte">Soporte Técnico</a></li>
+//             <li><a href="#armado">Armado y Reparación de PCs</a></li>
+//             <li><a href="#it">Asesoramiento IT</a></li>
+//           </ul>
+//         </div>
+
+//         {/* Columna 4: Contacto */}
+//         <div className="footer-links-col">
+//           <h3>CONTACTO</h3>
+//           <ul className="footer-contact-info">
+//             <li>
+//               <Phone size={18} />
+//               <span>+54 1130607355</span>
+//             </li>
+//             <li>
+//               <EnvelopeSimple size={18} />
+//               <span>hola@temposolutions.com.ar</span>
+//             </li>
+//             <li>
+//               <MapPin size={18} />
+//               <span>Argentina</span>
+//             </li>
+//           </ul>
+//         </div>
+
+//         {/* Columna 5: Legal */}
+//         <div className="footer-links-col">
+//           <h3>LEGAL & INFO</h3>
+//           <ul>
+//             <li><a href="https://www.termsfeed.com/live/931d0bc8-984c-44c4-a2c0-f2cdcf7924cd">Política de Privacidad</a></li>
+//             <li><a href="https://github.com/fedetempone/TempoSolutions">Open Source</a></li>
+//           </ul>
+//         </div>
+
+//       </div>
+
+//       {/* Barra Inferior de Derechos */}
+//       <div className="footer-bottom">
+//         <p>© 2026 TempoSolutions. Todos los derechos reservados.</p>
+//       </div>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
 import React from "react";
 import "../styles/footer.css";
-import { 
-  InstagramLogo, 
-  LinkedinLogo, 
-  GithubLogo, 
-  WhatsappLogo, 
-  Phone, 
-  EnvelopeSimple, 
-  MapPin 
+import {
+  InstagramLogo,
+  LinkedinLogo,
+  GithubLogo,
+  WhatsappLogo,
+  Phone,
+  EnvelopeSimple,
+  MapPin
 } from "@phosphor-icons/react";
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenService: (id: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenService }) => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
+
         {/* Columna 1: Branding y Redes */}
         <div className="footer-brand-col">
           <div className="footer-logo-box">
@@ -25,7 +133,7 @@ const Footer: React.FC = () => {
             Soluciones tecnológicas para personas y empresas.
           </p>
           <div className="footer-socials">
-            <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a href="https://wa.me/5491130607355" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <WhatsappLogo size={22} weight="light" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -34,7 +142,7 @@ const Footer: React.FC = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedinLogo size={22} weight="light" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/fedetempone" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <GithubLogo size={22} weight="light" />
             </a>
           </div>
@@ -52,14 +160,14 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Columna 3: Servicios */}
+        {/* Columna 3: Servicios (Disparadores de Modal) */}
         <div className="footer-links-col">
           <h3>SERVICIOS</h3>
           <ul>
-            <li><a href="#web">Desarrollo Web</a></li>
-            <li><a href="#soporte">Soporte Técnico</a></li>
-            <li><a href="#armado">Armado y Reparación de PCs</a></li>
-            <li><a href="#it">Asesoramiento IT</a></li>
+            <li><button onClick={() => onOpenService("web")}>Desarrollo Web</button></li>
+            <li><button onClick={() => onOpenService("soporte")}>Soporte Técnico</button></li>
+            <li><button onClick={() => onOpenService("armado")}>Armado y Reparación de PCs</button></li>
+            <li><button onClick={() => onOpenService("it")}>Asesoramiento IT</button></li>
           </ul>
         </div>
 
@@ -69,11 +177,15 @@ const Footer: React.FC = () => {
           <ul className="footer-contact-info">
             <li>
               <Phone size={18} />
-              <span>+54 1130607355</span>
+              <a href="tel:+541130607355" className="footer-phone-link">
+                +54 11 3060 7355
+              </a>
             </li>
             <li>
               <EnvelopeSimple size={18} />
-              <span>hola@temposolutions.com.ar</span>
+              <a href="mailto:hola@temposolutions.com.ar" className="footer-email-link">
+                hola@temposolutions.com.ar
+              </a>
             </li>
             <li>
               <MapPin size={18} />
@@ -90,7 +202,6 @@ const Footer: React.FC = () => {
             <li><a href="https://github.com/fedetempone/TempoSolutions">Open Source</a></li>
           </ul>
         </div>
-
       </div>
 
       {/* Barra Inferior de Derechos */}
