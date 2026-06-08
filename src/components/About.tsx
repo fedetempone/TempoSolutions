@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/about.css";
-import { WhatsappLogo } from "@phosphor-icons/react";
 
 const AboutContact: React.FC = () => {
   const avatarUrl = "./img/about.jpeg";
