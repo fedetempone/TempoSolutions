@@ -1,14 +1,20 @@
 .servicesSection {
-  padding: 120px 0;
+  position: relative; 
+  padding: 120px 0 160px 0; 
   background: radial-gradient(circle at center, rgba(45, 124, 255, 0.08), transparent 60%), var(--background);
+  overflow: hidden;
 }
+
 .servicesContainer {
   width: 100%;
   max-width: var(--containerWidth);
   margin: 0 auto;
   padding: 0 2rem;
   text-align: center;
+  position: relative;
+  z-index: 2; 
 }
+
 .sectionBadge {
   display: inline-block;
   padding: 8px 18px;
@@ -17,61 +23,81 @@
   background: rgba(45, 124, 255, 0.12);
   border: 1px solid rgba(45, 124, 255, 0.25);
   color: var(--primaryLight);
-  font-size: 0.9rem;
+  font-size: var(--smallTextSize);
   font-weight: 600;
 }
+
 .sectionTitle {
+  font-family: var(--fontTitle);
+  font-size: var(--h2Size);
+  font-weight: var(--h2Weight);
   margin-bottom: 1rem;
 }
+
 .sectionDescription {
+  font-family: var(--fontText);
   max-width: 650px;
   margin: 0 auto 4rem auto;
   color: var(--textSecondary);
 }
+
 .servicesGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: stretch;
 }
+
 .serviceCard {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(17, 24, 39, 0.6); /* Glassmorphism sutil sobre el fondo */
   border: 1px solid var(--border);
   border-radius: var(--radiusLg);
   padding: 2rem;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: all var(--transitionNormal);
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 540px;
 }
+
 .serviceCard:hover {
   transform: translateY(-6px);
   border-color: rgba(45, 124, 255, 0.35);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(45, 124, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--shadowBlue);
 }
+
 .serviceCard svg {
   color: var(--primary);
 }
+
 .serviceCard h3 {
+  font-family: var(--fontTitle);
+  font-size: var(--h3Size);
+  font-weight: var(--h3Weight);
   margin-bottom: 1rem;
 }
+
 .serviceCard p {
+  font-family: var(--fontText);
   color: var(--textSecondary);
   margin-bottom: 1.5rem;
-  line-height: 1.7;
+  line-height: var(--lineHeight);
 }
+
 .serviceCard ul {
   margin-bottom: 2rem;
 }
+
 .serviceCard li {
+  font-family: var(--fontText);
   color: var(--textSecondary);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
+
 .serviceButton {
   background: transparent;
   border: none;
@@ -82,34 +108,109 @@
   cursor: pointer;
   font-weight: 600;
   margin-top: auto;
-  transition: all 0.3s ease;
+  transition: all var(--transitionNormal);
 }
+
 .serviceButton:hover {
-  color: #fff;
+  color: var(--white);
   transform: translateX(4px);
 }
-/* ========================= */
-/* TABLET */
-/* ========================= */
+
+/* ==========================================================================
+   WAVE SEPARATOR 
+   ========================================================================== */
+.section-divider-bottom {
+  position: absolute;
+  bottom: -1px; 
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.section-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+}
+
+.section-divider-bottom svg path {
+  fill: var(--backgroundSecondary); 
+}
+
+/* ==========================================================================
+   SCROLL PARALLAX REVEAL 
+   ========================================================================== */
+
+.serviceCard {
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color var(--transitionNormal),
+    box-shadow var(--transitionNormal);
+}
+
+/* estado visible */
+.serviceCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger lateral */
+.serviceCard:nth-child(odd) {
+  transform: translate(-35px, 80px);
+}
+
+.serviceCard:nth-child(even) {
+  transform: translate(35px, 80px);
+}
+
+/* cuando entra en viewport se normaliza */
+.serviceCard:nth-child(odd).serviceCardVisible,
+.serviceCard:nth-child(even).serviceCardVisible {
+  transform: translate(0, 0);
+}
+
+/* flotaciOn */
+.serviceCardVisible {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* floating leve  */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
 @media (min-width: 768px) {
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .section-divider-bottom svg {
+    height: 100px; 
+  }
 }
-/* ========================= */
-/* DESKTOP */
-/* ========================= */
+
 @media (min-width: 1200px) {
   .servicesGrid {
     grid-template-columns: repeat(4, 1fr);
   }
+  .section-divider-bottom svg {
+    height: 120px; 
+  }
 }
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+
 @media (max-width: 500px) {
   .servicesSection {
-    padding: 80px 0;
+    padding: 80px 0 100px 0;
   }
   .servicesContainer {
     padding: 0 1.25rem;
@@ -117,18 +218,19 @@
   .serviceCard {
     min-height: auto;
   }
+  .section-divider-bottom svg {
+    height: 50px; 
+  }
 }
-/* ========================= */
-/* EXTRA SMALL */
-/* ========================= */
+
 @media (max-width: 200px) {
   .serviceCard {
     padding: 1rem;
   }
   .serviceCard h3 {
-    font-size: 1rem;
+    font-size: var(--textSize);
   }
   .serviceButton {
-    font-size: 0.8rem;
+    font-size: var(--smallTextSize);
   }
 }

@@ -6,6 +6,7 @@
 .projectsContainer {
   max-width: 1400px;
   margin: 0 auto;
+  perspective: 1500px;
 }
 
 .projectsHeader {
@@ -46,24 +47,67 @@
   gap: 32px;
 }
 
+/* ==========================================================================
+   SCROLL PARALLAX REVEAL 
+   ========================================================================== */
 .projectCard {
   background: var(--backgroundCard);
   border: 1px solid var(--border);
   border-radius: var(--radiusLg);
   overflow: hidden;
-  transition: var(--transitionNormal);
   display: flex;
   flex-direction: column;
   height: 100%;
   text-decoration: none;
   color: inherit;
+  opacity: 0;
+  transform: translateY(120px) rotateX(-12deg) scale(0.95);
+  transform-origin: center top;
+  
+  /* entrada y hover */
+  transition: 
+    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    border-color var(--transitionNormal),
+    box-shadow var(--transitionNormal);
 }
 
+/* retraso secuencial */
+.projectCard[style] {
+  transition-delay: min(var(--parallax-delay, 0ms), 500ms);
+}
+
+.projectCard {
+  transition-delay: calc(var(--parallax-delay, 0ms));
+}
+
+.projectCardVisible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+}
+
+/* flotacion */
+.projectCardVisible {
+  animation: projectFloat 7s ease-in-out infinite alternate;
+  /* Evitamos que la animación empiece de golpe antes de que termine de revelarse */
+  animation-delay: 1s; 
+}
+
+@keyframes projectFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
+/* hover */
 .projectCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px) scale(1.01) !important;
   box-shadow: 0 20px 40px rgba(45, 124, 255, 0.15), 0 0 30px rgba(0, 212, 255, 0.08);
+  animation-play-state: paused; /* Frena el float fluido mientras el usuario interactúa */
 }
 
+/* ==========================================================================
+   ELEMENTOS INTERNOS Y DISEÑO 
+   ========================================================================== */
 .projectImageWrapper {
   overflow: hidden;
   aspect-ratio: 16 / 9;
@@ -179,15 +223,13 @@
 }
 
 @keyframes rotateGlow {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
 @media (max-width: 1100px) {
   .projectsGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -211,5 +253,10 @@
   .githubButton {
     width: 100%;
     justify-content: center;
+  }
+  
+  /* deshabilito float en mobile*/
+  .projectCardVisible {
+    animation: none;
   }
 }

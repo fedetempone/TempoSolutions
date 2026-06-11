@@ -61,7 +61,7 @@ const Navbar = () => {
           }}
         >
           <img
-            src="/img/logobackgroundremoveshort.png"
+            src="/img/newlogotransparent.png"
             alt="TempoSolutions Logo"
             className="logoImage"
           />

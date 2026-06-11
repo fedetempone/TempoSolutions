@@ -150,8 +150,8 @@
     pointer-events: none;
     z-index: -1;
     filter: blur(0.3px);
-    mask-image: radial-gradient(circle at 80% 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 95%);
-    -webkit-mask-image: radial-gradient(circle at 80% 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 95%);
+    mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 95%);
+    -webkit-mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 95%);
 }
 
 .heroImage {
@@ -162,9 +162,12 @@
 }
 
 @keyframes floatAmbient {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -193,8 +196,9 @@
     }
 
     .featureItem {
+        text-align: center;
+        align-items: center;
         justify-content: center;
-        text-align: left;
     }
 
     .glowEffect {
@@ -217,7 +221,7 @@
     }
 
     .heroFeatures {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .primaryButton,
