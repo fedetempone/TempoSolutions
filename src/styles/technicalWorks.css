@@ -181,7 +181,7 @@
 }
 
 /* ==========================================================================
-   STATS BOARD & PARALLAX REVEAL EFFECT
+   STATS BOARD & PERSISTENT PARALLAX REVEAL EFFECT
    ========================================================================== */
 .stats-board {
     background: var(--backgroundSecondary);
@@ -191,18 +191,13 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
-    overflow: hidden; 
 }
 
 .stats-board .stat-icon-box,
 .stats-board .stat-value,
 .stats-board .stat-label {
     opacity: 0;
-    transform: translateY(-40px);
     will-change: transform, opacity;
-    transition: 
-        opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1),
-        transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .stats-board .stat-item {
@@ -210,22 +205,37 @@
 }
 
 .stats-board .stat-icon-box {
+    transition: opacity 1.4s cubic-bezier(0.1, 0.8, 0.2, 1), transform 1.4s cubic-bezier(0.1, 0.8, 0.2, 1);
     transition-delay: var(--delay);
 }
 
 .stats-board .stat-value {
-    transition-delay: calc(var(--delay) + 80ms);
+    transition: opacity 1.4s cubic-bezier(0.1, 0.8, 0.2, 1), transform 1.4s cubic-bezier(0.1, 0.8, 0.2, 1);
+    transition-delay: calc(var(--delay) + 70ms);
 }
 
 .stats-board .stat-label {
-    transition-delay: calc(var(--delay) + 160ms);
+    transition: opacity 1.4s cubic-bezier(0.1, 0.8, 0.2, 1), transform 1.4s cubic-bezier(0.1, 0.8, 0.2, 1);
+    transition-delay: calc(var(--delay) + 140ms);
+}
+
+.stats-board.statsFromBottom .stat-icon-box,
+.stats-board.statsFromBottom .stat-value,
+.stats-board.statsFromBottom .stat-label {
+    transform: translateY(80px);
+}
+
+.stats-board.statsFromTop .stat-icon-box,
+.stats-board.statsFromTop .stat-value,
+.stats-board.statsFromTop .stat-label {
+    transform: translateY(-80px);
 }
 
 .statsBoardVisible .stat-icon-box,
 .statsBoardVisible .stat-value,
 .statsBoardVisible .stat-label {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) !important;
 }
 
 .stat-item {
@@ -338,5 +348,19 @@
     .stat-item:last-child {
         border-right: none;
         padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-board.statsFromBottom .stat-icon-box,
+    .stats-board.statsFromBottom .stat-value,
+    .stats-board.statsFromBottom .stat-label {
+        transform: translateY(40px);
+    }
+
+    .stats-board.statsFromTop .stat-icon-box,
+    .stats-board.statsFromTop .stat-value,
+    .stats-board.statsFromTop .stat-label {
+        transform: translateY(-40px);
     }
 }

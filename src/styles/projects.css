@@ -60,49 +60,63 @@
   height: 100%;
   text-decoration: none;
   color: inherit;
+  
   opacity: 0;
-  transform: translateY(120px) rotateX(-12deg) scale(0.95);
+  will-change: transform, opacity;
   transform-origin: center top;
   
-  /* entrada y hover */
   transition: 
-    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
-    transform 1s cubic-bezier(0.215, 0.61, 0.355, 1),
     border-color var(--transitionNormal),
     box-shadow var(--transitionNormal);
 }
 
-/* retraso secuencial */
-.projectCard[style] {
-  transition-delay: min(var(--parallax-delay, 0ms), 500ms);
+/* --- Animaciones   --- */
+
+.projectCard.projectCardVisible.projectFromBottom {
+  animation: projectRevealFromBottom 1.4s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
 }
 
-.projectCard {
-  transition-delay: calc(var(--parallax-delay, 0ms));
+.projectCard.projectCardVisible.projectFromTop {
+  animation: projectRevealFromTop 1.4s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
 }
 
-.projectCardVisible {
-  opacity: 1;
-  transform: translateY(0) rotateX(0deg) scale(1);
+@keyframes projectRevealFromBottom {
+  0% { 
+    opacity: 0; 
+    transform: translateY(110px) rotateX(-12deg) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0deg) scale(1); 
+  }
 }
 
-/* flotacion */
+@keyframes projectRevealFromTop {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-110px) rotateX(12deg) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0deg) scale(1); 
+  }
+}
+
 .projectCardVisible {
   animation: projectFloat 7s ease-in-out infinite alternate;
-  /* Evitamos que la animación empiece de golpe antes de que termine de revelarse */
-  animation-delay: 1s; 
+  animation-delay: 1.4s; 
 }
 
 @keyframes projectFloat {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-5px); }
+  0% { transform: translateY(0px) rotateX(0deg) scale(1); }
+  100% { transform: translateY(-6px) rotateX(0deg) scale(1); }
 }
 
-/* hover */
 .projectCard:hover {
-  transform: translateY(-10px) scale(1.01) !important;
+  transform: translateY(-12px) scale(1.01) !important;
+  border-color: rgba(45, 124, 255, 0.35);
   box-shadow: 0 20px 40px rgba(45, 124, 255, 0.15), 0 0 30px rgba(0, 212, 255, 0.08);
-  animation-play-state: paused; /* Frena el float fluido mientras el usuario interactúa */
+  animation-play-state: paused; /* Congela el float */
 }
 
 /* ==========================================================================
@@ -122,7 +136,7 @@
 }
 
 .projectCard:hover .projectImage {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .projectContent {
@@ -228,11 +242,12 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN 
    ========================================================================== */
 @media (max-width: 1100px) {
   .projectsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
@@ -247,7 +262,7 @@
 
   .projectsGrid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 28px;
   }
 
   .githubButton {
@@ -255,8 +270,17 @@
     justify-content: center;
   }
   
-  /* deshabilito float en mobile*/
   .projectCardVisible {
     animation: none;
+  }
+  
+  @keyframes projectRevealFromBottom {
+    0% { opacity: 0; transform: translateY(60px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes projectRevealFromTop {
+    0% { opacity: 0; transform: translateY(-60px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 }

@@ -49,20 +49,26 @@
 }
 
 .serviceCard {
-  background: rgba(17, 24, 39, 0.6); /* Glassmorphism sutil sobre el fondo */
+  background: rgba(17, 24, 39, 0.6);
   border: 1px solid var(--border);
   border-radius: var(--radiusLg);
   padding: 2rem;
   text-align: left;
-  transition: all var(--transitionNormal);
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 540px;
+  
+  /* estado inicial oculto  */
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: 
+    border-color var(--transitionNormal),
+    box-shadow var(--transitionNormal);
 }
 
 .serviceCard:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) !important; 
   border-color: rgba(45, 124, 255, 0.35);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--shadowBlue);
 }
@@ -141,49 +147,48 @@
 }
 
 /* ==========================================================================
-   SCROLL PARALLAX REVEAL 
+   DINAMIC PARALLAX ANIMATIONS 
    ========================================================================== */
 
-.serviceCard {
-  opacity: 0;
-  transform: translateY(80px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color var(--transitionNormal),
-    box-shadow var(--transitionNormal);
+/* Animación cuando entrás bajando la página (Mover hacia arriba) */
+.serviceCard.serviceCardVisible.comeFromBottom {
+  animation: revealFromBottom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* estado visible */
-.serviceCardVisible {
-  opacity: 1;
-  transform: translateY(0);
+/* Animación cuando entrás subiendo la página (Mover hacia abajo) */
+.serviceCard.serviceCardVisible.comeFromTop {
+  animation: revealFromTop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* stagger lateral */
-.serviceCard:nth-child(odd) {
-  transform: translate(-35px, 80px);
+/* Variación asimétrica de entrada según paridad de tarjetas en Desktop */
+@media (min-width: 768px) {
+  .serviceCard:nth-child(odd).serviceCardVisible.comeFromBottom {
+    animation: revealFromBottomLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .serviceCard:nth-child(even).serviceCardVisible.comeFromBottom {
+    animation: revealFromBottomRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
-.serviceCard:nth-child(even) {
-  transform: translate(35px, 80px);
+/* Keyframes de despliegue */
+@keyframes revealFromBottom {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* cuando entra en viewport se normaliza */
-.serviceCard:nth-child(odd).serviceCardVisible,
-.serviceCard:nth-child(even).serviceCardVisible {
-  transform: translate(0, 0);
+@keyframes revealFromTop {
+  0% { opacity: 0; transform: translateY(-60px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* flotaciOn */
-.serviceCardVisible {
-  animation: subtleFloat 6s ease-in-out infinite;
+@keyframes revealFromBottomLeft {
+  0% { opacity: 0; transform: translate(-30px, 60px); }
+  100% { opacity: 1; transform: translate(0, 0); }
 }
 
-/* floating leve  */
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
+@keyframes revealFromBottomRight {
+  0% { opacity: 0; transform: translate(30px, 60px); }
+  100% { opacity: 1; transform: translate(0, 0); }
 }
 
 /* ==========================================================================
