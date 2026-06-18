@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.temposolutions.com.ar/sitemap.xml

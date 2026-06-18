@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenService }) => {
             <li>
               <EnvelopeSimple size={18} />
               <a href="mailto:hola@temposolutions.com.ar" className="footer-email-link">
-                hola@temposolutions.com.ar
+                contacto@temposolutions.com.ar
               </a>
             </li>
             <li>
