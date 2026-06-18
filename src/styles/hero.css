@@ -229,10 +229,15 @@
         width: 100%;
         justify-content: center;
     }
+
+    .badgeDot{
+        display: none;
+    }
 }
 
 @media (max-width: 200px) {
     .heroTitle {
         font-size: 2rem;
     }
+
 }

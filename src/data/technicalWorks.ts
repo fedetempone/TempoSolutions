@@ -50,7 +50,7 @@ export const technicalWorksData: TechnicalWork[] = [
 export const statsData: StatItem[] = [
   {
     id: "projects",
-    label: "Proyectos completados con éxito",
+    label: "Proyectos finalizados con éxito",
     value: ""
   },
   {
