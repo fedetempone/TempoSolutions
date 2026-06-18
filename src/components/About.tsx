@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "../styles/about.css";
 
 const AboutContact: React.FC = () => {
-  const avatarUrl = "./img/about.png";
+  const avatarUrl = "./img/about2.png";
   const laptopUrl = "./img/projectinmind.avif";
   const aboutRef = useRef<HTMLDivElement>(null);
 
